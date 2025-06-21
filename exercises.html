@@ -1,0 +1,122 @@
+<!-- Updated exercises.html layout to support topic-wise best problem containers like Codeforwin -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C++ Exercises - Practice Hub</title>
+    <link rel="stylesheet" href="exercises.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html"
+                        style="text-decoration: none; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">C++
+                        Practice Hub</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="exercises.html" style="color: #667eea;">Exercises</a></li>
+                        <li><a href="index.html#tutorials">Tutorials</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="exercises-header">
+            <h1>C++ Programming Exercises</h1>
+            <p>Choose from our collection of carefully crafted programming exercises</p>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search exercises..."
+                onkeyup="searchExercises(this.value)" />
+        </div>
+
+        <!-- Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterExercises('all')">All</button>
+            <button class="filter-tab" data-filter="easy">Easy</button>
+            <button class="filter-tab" data-filter="medium">Medium</button>
+            <button class="filter-tab" data-filter="hard">Hard</button>
+            <button class="filter-tab" onclick="filterExercises('fundamentals')">Fundamentals</button>
+            <button class="filter-tab" onclick="filterExercises('ternary operator')">Ternary Operator</button>
+            <button class="filter-tab" onclick="filterExercises('arrays')">Arrays</button>
+            <button class="filter-tab" onclick="filterExercises('strings')">Strings</button>
+            <button class="filter-tab" onclick="filterExercises('loops')">Loops</button>
+            <button class="filter-tab" onclick="filterExercises('functions')">Functions</button>
+            <button class="filter-tab" onclick="filterExercises('recursion')">Recursion</button>
+            <button class="filter-tab" onclick="filterExercises('pattern printing')">Pattern Printing</button>
+            <button class="filter-tab" onclick="filterExercises('2D Arrays')">2D Array</button>
+            <button class="filter-tab" onclick="filterExercises('structures')">Structures</button>
+            <button class="filter-tab" onclick="filterExercises('2d arrays')">Classes</button>
+            <button class="filter-tab" onclick="filterExercises('OOPS')">OOP</button>
+            <button class="filter-tab" onclick="filterExercises('pointers')">Pointers</button>
+            <button class="filter-tab" onclick="filterExercises('advanced problems')">Advanced Problems</button>
+        </div>
+
+
+        <!-- Exercises Grid Rendered by JS -->
+        <div class="exercises-grid" id="exercisesGrid">
+            <!-- Example Arrays Category Section -->
+            <div class="category-section">
+                <h2>Arrays</h2>
+                <ul class="exercise-list">
+                    <li><a href="#" class="exercise-link" data-id="201">Find Maximum Element</a></li>
+                    <li><a href="#" class="exercise-link" data-id="202">Find Minimum Element</a></li>
+                    <li><a href="#" class="exercise-link" data-id="203">Reverse Array</a></li>
+                    <li><a href="#" class="exercise-link" data-id="204">Sum of Elements</a></li>
+                    <li><a href="#" class="exercise-link" data-id="205">Remove Duplicates</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="exerciseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Exercise Title</h2>
+                <p id="modal-difficulty"></p>
+                <button class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('problem')">Problem</button>
+                    <button class="tab" onclick="showTab('solution')">Solution</button>
+                    <button class="tab" onclick="showTab('explanation')">Explanation</button>
+                </div>
+                <div id="problem" class="tab-content active">
+                    <div id="problemContent"></div>
+                </div>
+                <div id="solution" class="tab-content">
+                    <div id="solutionContent"></div>
+                    <button id="copy-solution" class="copy-button">Copy Solution</button>
+                </div>
+                <div id="explanation" class="tab-content">
+                    <div id="explanationContent"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 C++ Practice Hub. Master programming one exercise at a time.</p>
+        </div>
+    </footer>
+
+    <script src="exercises.js"></script>
+</body>
+
+</html>
