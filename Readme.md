@@ -63,6 +63,12 @@ It’s a one-stop solution for students, developers, and competitive programmers
      (This automatically opens the website in your browser.)
 
 ---
+## 🌐 Live Demo / Deployed Link
+
+You can access the **C++ Practice Hub** live at:
+
+[https://cpp-practice-hub.vercel.app/]
+---
 
 ## 📖 Future Enhancements
 
