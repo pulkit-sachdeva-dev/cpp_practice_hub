@@ -53,9 +53,29 @@
                 onkeyup="searchExercises(this.value)" />
         </div>
 
+        <!-- Progress Stats Bar -->
+        <div class="progress-stats-bar">
+            <div class="progress-stat">
+                <span class="stat-label">Total Solved:</span>
+                <span class="stat-value" id="totalSolved">0</span>
+            </div>
+            <div class="progress-stat">
+                <span class="stat-label">Progress:</span>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progressBarFill" style="width: 0%"></div>
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+            </div>
+            <button class="reset-progress-btn" onclick="resetProgress()" title="Reset all progress">
+                🔄 Reset Progress
+            </button>
+        </div>
+
         <!-- Tabs -->
         <div class="filter-tabs">
             <button class="filter-tab active" onclick="filterExercises('all')">All</button>
+            <button class="filter-tab" onclick="filterExercises('solved')">✓ Solved</button>
+            <button class="filter-tab" onclick="filterExercises('unsolved')">Unsolved</button>
             <button class="filter-tab" data-filter="easy">Easy</button>
             <button class="filter-tab" data-filter="medium">Medium</button>
             <button class="filter-tab" data-filter="hard">Hard</button>
@@ -117,6 +137,19 @@
                     <div id="explanationContent"></div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <div class="progress-actions">
+                    <button class="status-btn status-solved" onclick="markExerciseStatus('solved')" id="markSolvedBtn">
+                        ✓ Mark as Solved
+                    </button>
+                    <button class="status-btn status-attempted" onclick="markExerciseStatus('attempted')" id="markAttemptedBtn">
+                        ⏱ Mark as Attempted
+                    </button>
+                    <button class="status-btn status-reset" onclick="markExerciseStatus('not-started')" id="markResetBtn">
+                        ○ Reset Status
+                    </button>
+                </div>
+            </div>
         </div>
 
 
@@ -128,6 +161,7 @@
         </div>
     </footer>
 
+    <script src="progress.js"></script>
     <script src="exercises.js"></script>
     <!-- Vercel Analytics -->
     <script>
