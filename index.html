@@ -61,6 +61,40 @@
                 </div>
             </div>
 
+            <!-- Progress Dashboard -->
+            <div class="progress-dashboard">
+                <h2>📊 Your Progress</h2>
+                <div class="dashboard-stats">
+                    <div class="dashboard-card">
+                        <div class="dashboard-icon">✓</div>
+                        <div class="dashboard-info">
+                            <h3 id="homeTotalSolved">0</h3>
+                            <p>Problems Solved</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-icon">⏱</div>
+                        <div class="dashboard-info">
+                            <h3 id="homeTotalAttempted">0</h3>
+                            <p>Problems Attempted</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-icon">🎯</div>
+                        <div class="dashboard-info">
+                            <h3 id="homeCompletionRate">0%</h3>
+                            <p>Completion Rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-progress">
+                    <h3>Progress by Category</h3>
+                    <div id="categoryProgressList" class="category-progress-list">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
             <div class="features">
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
@@ -141,7 +175,28 @@
         </div>
     </footer>
 
-    <script src="index.js">
+    <script src="progress.js"></script>
+    <script src="index.js"></script>
+    <script>
+        // Update home page progress dashboard
+        function updateHomeDashboard() {
+            if (typeof ProgressTracker === 'undefined') return;
+            
+            const stats = ProgressTracker.getOverallStats();
+            const totalExercises = 250; // Update this based on actual count
+            const completionRate = Math.round((stats.totalSolved / totalExercises) * 100);
+            
+            document.getElementById('homeTotalSolved').textContent = stats.totalSolved;
+            document.getElementById('homeTotalAttempted').textContent = stats.totalAttempted;
+            document.getElementById('homeCompletionRate').textContent = completionRate + '%';
+        }
+        
+        // Initialize dashboard on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateHomeDashboard);
+        } else {
+            updateHomeDashboard();
+        }
     </script>
     <!-- Vercel Analytics -->
     <script>
