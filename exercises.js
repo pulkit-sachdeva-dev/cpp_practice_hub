@@ -3141,7 +3141,7 @@ int main() {
     category: 'OOP',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Define a class Math with a lambda to multiply two numbers, take input, and print result.</p><h4>Sample Input:</h4><pre>4 5</pre><h4>Sample Output:</h4><pre>20</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <functional>\nusing namespace std;\n\nclass Math {\npublic:\n    int a, b;\n    Math(int x, int y) : a(x), b(y) {}\n    void calculate() {\n        auto multiply = [this]() {\n            return a * b;\n        };\n        cout << multiply() << endl;\n    }\n};\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    Math m(x, y);\n    m.calculate();\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;functional&gt\nusing namespace std;\n\nclass Math {\npublic:\n    int a, b;\n    Math(int x, int y) : a(x), b(y) {}\n    void calculate() {\n        auto multiply = [this]() {\n            return a * b;\n        };\n        cout << multiply() << endl;\n    }\n};\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    Math m(x, y);\n    m.calculate();\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>The lambda function multiplies the class members.</p>`
   },
   {
@@ -3164,7 +3164,7 @@ int main() {
     category: 'STL',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N and N integers as input, store them in a vector, and print their sum.</p><h4>Sample Input:</h4><pre>4\n1 2 3 4</pre><h4>Sample Output:</h4><pre>10</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    int sum = 0;\n    for(int x : v) sum += x;\n    cout << sum << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    vector &lt;int&gt v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    int sum = 0;\n    for(int x : v) sum += x;\n    cout << sum << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>The vector stores dynamic input, and a range-based loop calculates the sum.</p>`
   },
   {
@@ -3174,7 +3174,7 @@ int main() {
     category: 'STL',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N and N integers, store their frequencies in a map, and print each number with its count.</p><h4>Sample Input:</h4><pre>5\n1 2 2 3 1</pre><h4>Sample Output:</h4><pre>1: 2\n2: 2\n3: 1</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;map&gt;\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    map<int, int> freq;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        freq[x]++;\n    }\n    for(auto& pair : freq) cout << pair.first << ": " << pair.second << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;map&gt;\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    map &lt;int,int&gt freq;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        freq[x]++;\n    }\n    for(auto& pair : freq) cout << pair.first << ": " << pair.second << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>The map automatically sorts keys and counts occurrences.</p>`
   },
   {
@@ -3184,7 +3184,7 @@ int main() {
     category: 'STL',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N and N integers, store unique elements in a set, and print them.</p><h4>Sample Input:</h4><pre>5\n1 2 2 3 1</pre><h4>Sample Output:</h4><pre>1 2 3</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;set&gt;\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    set<int> s;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        s.insert(x);\n    }\n    for(int x : s) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;set&gt;\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    set&lt;int&gt s;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        s.insert(x);\n    }\n    for(int x : s) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>The set automatically removes duplicates and sorts elements.</p>`
   },
   {
@@ -3194,7 +3194,7 @@ int main() {
     category: 'STL',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N and N integers, store in a deque, rotate it by K positions, and print.</p><h4>Sample Input:</h4><pre>4 2\n1 2 3 4</pre><h4>Sample Output:</h4><pre>3 4 1 2</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <deque>\nusing namespace std;\n\nint main() {\n    int n, k;\n    cin >> n >> k;\n    deque<int> d;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        d.push_back(x);\n    }\n    for(int i = 0; i < k; i++) {\n        int front = d.front();\n        d.pop_front();\n        d.push_back(front);\n    }\n    for(int x : d) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;deque&gt\nusing namespace std;\n\nint main() {\n    int n, k;\n    cin >> n >> k;\n    deque&lt;int&gt d;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        d.push_back(x);\n    }\n    for(int i = 0; i < k; i++) {\n        int front = d.front();\n        d.pop_front();\n        d.push_back(front);\n    }\n    for(int x : d) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>The deque is rotated by moving the front element to the back K times.</p>`
   },
   {
@@ -3204,7 +3204,7 @@ int main() {
     category: 'STL',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N and N integers, push into a stack, reverse using another stack, and print.</p><h4>Sample Input:</h4><pre>4\n1 2 3 4</pre><h4>Sample Output:</h4><pre>4 3 2 1</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <stack>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    stack<int> s, temp;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        s.push(x);\n    }\n    while(!s.empty()) {\n        temp.push(s.top());\n        s.pop();\n    }\n    while(!temp.empty()) {\n        cout << temp.top() << " ";\n        temp.pop();\n    }\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;stack&gt\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    stack&lt;int&gt s, temp;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        s.push(x);\n    }\n    while(!s.empty()) {\n        temp.push(s.top());\n        s.pop();\n    }\n    while(!temp.empty()) {\n        cout << temp.top() << " ";\n        temp.pop();\n    }\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Elements are transferred to a temporary stack to reverse the order.</p>`
   },
   {
@@ -3214,7 +3214,7 @@ int main() {
     category: 'STL',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N and N integers, store in a queue, check if it’s a palindrome, and print "Yes" or "No".</p><h4>Sample Input:</h4><pre>4\n1 2 2 1</pre><h4>Sample Output:</h4><pre>Yes</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <queue>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    queue<int> q;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        q.push(x);\n    }\n    bool isPalindrome = true;\n    for(int i = 0; i < n/2; i++) {\n        int front = q.front(); q.pop();\n        int back = q.back(); q.pop();\n        if(front != back) isPalindrome = false;\n        q.push(front); q.push(back);\n    }\n    cout << (isPalindrome ? "Yes" : "No") << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;queue&gt\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    queue&lt;int&gt q;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        q.push(x);\n    }\n    bool isPalindrome = true;\n    for(int i = 0; i < n/2; i++) {\n        int front = q.front(); q.pop();\n        int back = q.back(); q.pop();\n        if(front != back) isPalindrome = false;\n        q.push(front); q.push(back);\n    }\n    cout << (isPalindrome ? "Yes" : "No") << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Front and back elements are compared, preserving the queue.</p>`
   },
   {
@@ -3224,7 +3224,7 @@ int main() {
     category: 'STL',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N, N integers, and a target sum, check if any two numbers sum to target, print "Yes" or "No".</p><h4>Sample Input:</h4><pre>5 9\n1 2 3 4 5</pre><h4>Sample Output:</h4><pre>Yes</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include <unordered_set>\nusing namespace std;\n\nint main() {\n    int n, target;\n    cin >> n >> target;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    unordered_set<int> s;\n    bool found = false;\n    for(int x : v) {\n        if(s.count(target - x)) {\n            found = true;\n            break;\n        }\n        s.insert(x);\n    }\n    cout << (found ? "Yes" : "No") << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;unordered_set&gt\nusing namespace std;\n\nint main() {\n    int n, target;\n    cin >> n >> target;\n    vector&lt;int&gt v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    unordered_set&lt;int&gt s;\n    bool found = false;\n    for(int x : v) {\n        if(s.count(target - x)) {\n            found = true;\n            break;\n        }\n        s.insert(x);\n    }\n    cout << (found ? "Yes" : "No") << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>A set tracks seen numbers to find a complement for the target sum.</p>`
   },
   {
@@ -3234,7 +3234,7 @@ int main() {
     category: 'Templates',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take two integers, use a template function to find the maximum, and print it.</p><h4>Sample Input:</h4><pre>5 3</pre><h4>Sample Output:</h4><pre>5</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\ntemplate <typename T>\nT maximum(T a, T b) {\n    return (a > b) ? a : b;\n}\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    cout << maximum(a, b) << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\ntemplate &lt;typename T&gt\nT maximum(T a, T b) {\n    return (a > b) ? a : b;\n}\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    cout << maximum(a, b) << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>The template function works with any comparable type.</p>`
   },
   {
@@ -3244,7 +3244,7 @@ int main() {
     category: 'Templates',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N and N integers, push into a template stack, pop and print all elements.</p><h4>Sample Input:</h4><pre>3\n1 2 3</pre><h4>Sample Output:</h4><pre>3 2 1</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\ntemplate <typename T>\nclass Stack {\nprivate:\n    T* arr;\n    int top;\n    int capacity;\npublic:\n    Stack(int c) : capacity(c), top(-1) { arr = new T[capacity]; }\n    ~Stack() { delete[] arr; }\n    void push(T x) { arr[++top] = x; }\n    T pop() { return arr[top--]; }\n    bool isEmpty() { return top == -1; }\n};\n\nint main() {\n    int n;\n    cin >> n;\n    Stack<int> s(n);\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        s.push(x);\n    }\n    while(!s.isEmpty()) cout << s.pop() << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\ntemplate &lt;typename T&gt\nclass Stack {\nprivate:\n    T* arr;\n    int top;\n    int capacity;\npublic:\n    Stack(int c) : capacity(c), top(-1) { arr = new T[capacity]; }\n    ~Stack() { delete[] arr; }\n    void push(T x) { arr[++top] = x; }\n    T pop() { return arr[top--]; }\n    bool isEmpty() { return top == -1; }\n};\n\nint main() {\n    int n;\n    cin >> n;\n    Stack&lt;int&gt s(n);\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        s.push(x);\n    }\n    while(!s.isEmpty()) cout << s.pop() << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>The template stack manages dynamic memory for any type.</p>`
   },
   {
@@ -3254,7 +3254,7 @@ int main() {
     category: 'Exception Handling',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take two integers, divide the first by the second, throw exception for zero, and print result or error.</p><h4>Sample Input:</h4><pre>10 2</pre><h4>Sample Output:</h4><pre>5</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <stdexcept>\nusing namespace std;\n\nint divide(int a, int b) {\n    if(b == 0) throw runtime_error("Division by zero");\n    return a / b;\n}\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    try {\n        cout << divide(a, b) << endl;\n    } catch(const runtime_error& e) {\n        cout << e.what() << endl;\n    }\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;stdexcept&gt\nusing namespace std;\n\nint divide(int a, int b) {\n    if(b == 0) throw runtime_error("Division by zero");\n    return a / b;\n}\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    try {\n        cout << divide(a, b) << endl;\n    } catch(const runtime_error& e) {\n        cout << e.what() << endl;\n    }\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Exception is thrown and caught for division by zero cases.</p>`
   },
   {
@@ -3264,7 +3264,7 @@ int main() {
     category: 'Multithreading',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N, create N threads to increment a shared counter, and print the final value.</p><h4>Sample Input:</h4><pre>3</pre><h4>Sample Output:</h4><pre>3</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <thread>\nusing namespace std;\n\nint counter = 0;\nvoid increment() { counter++; }\n\nint main() {\n    int n;\n    cin >> n;\n    thread threads[n];\n    for(int i = 0; i < n; i++) threads[i] = thread(increment);\n    for(int i = 0; i < n; i++) threads[i].join();\n    cout << counter << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;thread&gt\nusing namespace std;\n\nint counter = 0;\nvoid increment() { counter++; }\n\nint main() {\n    int n;\n    cin >> n;\n    thread threads[n];\n    for(int i = 0; i < n; i++) threads[i] = thread(increment);\n    for(int i = 0; i < n; i++) threads[i].join();\n    cout << counter << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Each thread increments the shared counter, joined to ensure completion.</p>`
   },
   {
@@ -3274,7 +3274,7 @@ int main() {
     category: 'File Handling',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Read from "input.txt" and print the number of lines.</p><h4>Sample Input (input.txt):</h4><pre>Line 1\nLine 2\nLine 3</pre><h4>Sample Output:</h4><pre>3</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <fstream>\nusing namespace std;\n\nint main() {\n    ifstream file("input.txt");\n    int count = 0;\n    string line;\n    while(getline(file, line)) count++;\n    file.close();\n    cout << count << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;fstream&gt\nusing namespace std;\n\nint main() {\n    ifstream file("input.txt");\n    int count = 0;\n    string line;\n    while(getline(file, line)) count++;\n    file.close();\n    cout << count << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Each line read increments the counter until EOF.</p>`
   },
   {
@@ -3284,7 +3284,7 @@ int main() {
     category: 'Smart Pointers',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N and N integers, store in a unique_ptr array, and print them.</p><h4>Sample Input:</h4><pre>3\n1 2 3</pre><h4>Sample Output:</h4><pre>1 2 3</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <memory>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    auto arr = make_unique<int[]>(n);\n    for(int i = 0; i < n; i++) cin >> arr[i];\n    for(int i = 0; i < n; i++) cout << arr[i] << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;memory&gt\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    auto arr = make_unique<int[]>(n);\n    for(int i = 0; i < n; i++) cin >> arr[i];\n    for(int i = 0; i < n; i++) cout << arr[i] << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>unique_ptr automatically manages the array's memory.</p>`
   },
   {
@@ -3294,7 +3294,7 @@ int main() {
     category: 'Algorithms',
     difficulty: 'medium',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Medium</strong></p><p>Take N sorted integers and a target, use binary search to find it, print index or -1.</p><h4>Sample Input:</h4><pre>5 3\n1 2 3 4 5</pre><h4>Sample Output:</h4><pre>2</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint binarySearch(vector<int>& v, int target) {\n    int left = 0, right = v.size() - 1;\n    while(left <= right) {\n        int mid = left + (right - left) / 2;\n        if(v[mid] == target) return mid;\n        else if(v[mid] < target) left = mid + 1;\n        else right = mid - 1;\n    }\n    return -1;\n}\n\nint main() {\n    int n, target;\n    cin >> n >> target;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    cout << binarySearch(v, target) << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint binarySearch(vector&lt;int&gt &v, int target) {\n    int left = 0, right = v.size() - 1;\n    while(left <= right) {\n        int mid = left + (right - left) / 2;\n        if(v[mid] == target) return mid;\n        else if(v[mid] < target) left = mid + 1;\n        else right = mid - 1;\n    }\n    return -1;\n}\n\nint main() {\n    int n, target;\n    cin >> n >> target;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    cout << binarySearch(v, target) << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Binary search efficiently finds the target in a sorted array.</p>`
   },
   {
@@ -3304,7 +3304,7 @@ int main() {
     category: 'Algorithms',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take N integers, sort them using merge sort, and print the sorted array.</p><h4>Sample Input:</h4><pre>5\n5 2 4 1 3</pre><h4>Sample Output:</h4><pre>1 2 3 4 5</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvoid merge(vector<int>& v, int left, int mid, int right) {\n    int n1 = mid - left + 1;\n    int n2 = right - mid;\n    vector<int> L(n1), R(n2);\n    for(int i = 0; i < n1; i++) L[i] = v[left + i];\n    for(int i = 0; i < n2; i++) R[i] = v[mid + 1 + i];\n    int i = 0, j = 0, k = left;\n    while(i < n1 && j < n2) {\n        if(L[i] <= R[j]) v[k++] = L[i++];\n        else v[k++] = R[j++];\n    }\n    while(i < n1) v[k++] = L[i++];\n    while(j < n2) v[k++] = R[j++];\n}\n\nvoid mergeSort(vector<int>& v, int left, int right) {\n    if(left < right) {\n        int mid = left + (right - left) / 2;\n        mergeSort(v, left, mid);\n        mergeSort(v, mid + 1, right);\n        merge(v, left, mid, right);\n    }\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    mergeSort(v, 0, n-1);\n    for(int x : v) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvoid merge(vector&lt;int&rt &v, int left, int mid, int right) {\n    int n1 = mid - left + 1;\n    int n2 = right - mid;\n    vector&lt;int&rt L(n1), R(n2);\n    for(int i = 0; i < n1; i++) L[i] = v[left + i];\n    for(int i = 0; i < n2; i++) R[i] = v[mid + 1 + i];\n    int i = 0, j = 0, k = left;\n    while(i < n1 && j < n2) {\n        if(L[i] <= R[j]) v[k++] = L[i++];\n        else v[k++] = R[j++];\n    }\n    while(i < n1) v[k++] = L[i++];\n    while(j < n2) v[k++] = R[j++];\n}\n\nvoid mergeSort(vector&lt;int&rt& v, int left, int right) {\n    if(left < right) {\n        int mid = left + (right - left) / 2;\n        mergeSort(v, left, mid);\n        mergeSort(v, mid + 1, right);\n        merge(v, left, mid, right);\n    }\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    mergeSort(v, 0, n-1);\n    for(int x : v) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Merge sort divides the array, sorts subarrays, and merges them.</p>`
   },
   {
@@ -3314,7 +3314,7 @@ int main() {
     category: 'Algorithms',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take N integers, sort them using quick sort, and print the sorted array.</p><h4>Sample Input:</h4><pre>5\n5 2 4 1 3</pre><h4>Sample Output:</h4><pre>1 2 3 4 5</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint partition(vector<int>& v, int low, int high) {\n    int pivot = v[high];\n    int i = low - 1;\n    for(int j = low; j < high; j++) {\n        if(v[j] <= pivot) {\n            i++;\n            swap(v[i], v[j]);\n        }\n    }\n    swap(v[i + 1], v[high]);\n    return i + 1;\n}\n\nvoid quickSort(vector<int>& v, int low, int high) {\n    if(low < high) {\n        int pi = partition(v, low, high);\n        quickSort(v, low, pi - 1);\n        quickSort(v, pi + 1, high);\n    }\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    quickSort(v, 0, n-1);\n    for(int x : v) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint partition(vector&lt;int&rt &v, int low, int high) {\n    int pivot = v[high];\n    int i = low - 1;\n    for(int j = low; j < high; j++) {\n        if(v[j] <= pivot) {\n            i++;\n            swap(v[i], v[j]);\n        }\n    }\n    swap(v[i + 1], v[high]);\n    return i + 1;\n}\n\nvoid quickSort(vector&lt;int&rt &v, int low, int high) {\n    if(low < high) {\n        int pi = partition(v, low, high);\n        quickSort(v, low, pi - 1);\n        quickSort(v, pi + 1, high);\n    }\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector&lt;int&rt v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    quickSort(v, 0, n-1);\n    for(int x : v) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Quick sort uses a pivot to partition and recursively sorts subarrays.</p>`
   },
   {
@@ -3324,7 +3324,7 @@ int main() {
     category: 'Algorithms',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take N and an NxN adjacency matrix, perform DFS from node 0, and print visited nodes.</p><h4>Sample Input:</h4><pre>3\n0 1 1\n1 0 1\n1 1 0</pre><h4>Sample Output:</h4><pre>0 1 2</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvoid DFS(vector<vector<int>>& adj, int v, vector<bool>& visited, vector<int>& result) {\n    visited[v] = true;\n    result.push_back(v);\n    for(int u = 0; u < adj.size(); u++) {\n        if(adj[v][u] && !visited[u]) DFS(adj, u, visited, result);\n    }\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector<vector<int>> adj(n, vector<int>(n));\n    for(int i = 0; i < n; i++) for(int j = 0; j < n; j++) cin >> adj[i][j];\n    vector<bool> visited(n, false);\n    vector<int> result;\n    DFS(adj, 0, visited, result);\n    for(int x : result) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvoid DFS(vector&lt;vector&lt;int&gt&gt& adj, int v, vector&lt;bool&gt& visited, vector &lt;int&gt& result) {\n    visited[v] = true;\n    result.push_back(v);\n    for(int u = 0; u < adj.size(); u++) {\n        if(adj[v][u] && !visited[u]) DFS(adj, u, visited, result);\n    }\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector&lt;vector&lt;int&gt&gt adj(n, vector&lt;int&gt(n));\n    for(int i = 0; i < n; i++) for(int j = 0; j < n; j++) cin >> adj[i][j];\n    vector<bool> visited(n, false);\n    vector<int> result;\n    DFS(adj, 0, visited, result);\n    for(int x : result) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>DFS explores nodes recursively using an adjacency matrix.</p>`
   },
   {
@@ -3334,7 +3334,7 @@ int main() {
     category: 'Algorithms',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take N, edges with weights, and find shortest path from node 0 to all nodes.</p><h4>Sample Input:</h4><pre>3\n0 1 4\n0 2 2\n1 2 1\n</pre><h4>Sample Output:</h4><pre>0 3 2</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include <queue>\n#include <climits>\nusing namespace std;\n\ntypedef pair<int, int> pii;\n\nvector<int> dijkstra(vector<vector<pii>>& graph, int start) {\n    int n = graph.size();\n    vector<int> dist(n, INT_MAX);\n    priority_queue<pii, vector<pii>, greater<pii>> pq;\n    dist[start] = 0;\n    pq.push({0, start});\n    while(!pq.empty()) {\n        int u = pq.top().second;\n        pq.pop();\n        for(auto& edge : graph[u]) {\n            int v = edge.first, weight = edge.second;\n            if(dist[u] + weight < dist[v]) {\n                dist[v] = dist[u] + weight;\n                pq.push({dist[v], v});\n            }\n        }\n    }\n    return dist;\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector<vector<pii>> graph(n);\n    int u, v, w;\n    while(cin >> u >> v >> w) graph[u].push_back({v, w});\n    vector<int> dist = dijkstra(graph, 0);\n    for(int d : dist) cout << d << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;queue&gt\n#include &lt;climits&gt\nusing namespace std;\n\ntypedef pair&lt;int, int&gt pii;\n\nvector &lt;int&gt dijkstra(vector&lt;vector&lt;pii&gt&gt& graph, int start) {\n    int n = graph.size();\n    vector&lt;int&gt dist(n, INT_MAX);\n    priority_queue&lt;pii, vector&lt;pii&gt, greater&lt;pii&gt&gt pq;\n    dist[start] = 0;\n    pq.push({0, start});\n    while(!pq.empty()) {\n        int u = pq.top().second;\n        pq.pop();\n        for(auto& edge : graph[u]) {\n            int v = edge.first, weight = edge.second;\n            if(dist[u] + weight < dist[v]) {\n                dist[v] = dist[u] + weight;\n                pq.push({dist[v], v});\n            }\n        }\n    }\n    return dist;\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector&lt;vector&lt;pii&gt&gt graph(n);\n    int u, v, w;\n    while(cin >> u >> v >> w) graph[u].push_back({v, w});\n    vector&lt;int&gt dist = dijkstra(graph, 0);\n    for(int d : dist) cout << d << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Dijkstra’s algorithm uses a priority queue to find shortest paths.</p>`
   },
   {
@@ -3344,7 +3344,7 @@ int main() {
     category: 'Multithreading',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take N, create N threads to increment a shared counter with mutex, and print final value.</p><h4>Sample Input:</h4><pre>3</pre><h4>Sample Output:</h4><pre>3</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <thread>\n#include <mutex>\nusing namespace std;\n\nint counter = 0;\nmutex mtx;\nvoid increment() {\n    mtx.lock();\n    counter++;\n    mtx.unlock();\n}\n\nint main() {\n    int n;\n    cin >> n;\n    thread threads[n];\n    for(int i = 0; i < n; i++) threads[i] = thread(increment);\n    for(int i = 0; i < n; i++) threads[i].join();\n    cout << counter << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;thread&gt\n#include &lt;mutex&gt\nusing namespace std;\n\nint counter = 0;\nmutex mtx;\nvoid increment() {\n    mtx.lock();\n    counter++;\n    mtx.unlock();\n}\n\nint main() {\n    int n;\n    cin >> n;\n    thread threads[n];\n    for(int i = 0; i < n; i++) threads[i] = thread(increment);\n    for(int i = 0; i < n; i++) threads[i].join();\n    cout << counter << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Mutex prevents race conditions during counter increments.</p>`
   },
   {
@@ -3354,7 +3354,7 @@ int main() {
     category: 'File Handling',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Read from "input.txt" and print the number of words (space-separated).</p><h4>Sample Input (input.txt):</h4><pre>Hello world this is a test</pre><h4>Sample Output:</h4><pre>5</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <fstream>\n#include &lt;string&gt;\nusing namespace std;\n\nint main() {\n    ifstream file("input.txt");\n    string line;\n    int count = 0;\n    while(file >> line) count++;\n    file.close();\n    cout << count << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;fstream&gt\n#include &lt;string&gt;\nusing namespace std;\n\nint main() {\n    ifstream file("input.txt");\n    string line;\n    int count = 0;\n    while(file >> line) count++;\n    file.close();\n    cout << count << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Each word read increments the counter until EOF.</p>`
   },
   {
@@ -3364,7 +3364,7 @@ int main() {
     category: 'Smart Pointers',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take N integers, store in a shared_ptr vector, and print with use count.</p><h4>Sample Input:</h4><pre>3\n1 2 3</pre><h4>Sample Output:</h4><pre>1 (2) 2 (2) 3 (2)</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <memory>\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    vector<shared_ptr<int>> v;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        v.push_back(make_shared<int>(x));\n    }\n    for(auto& ptr : v) cout << *ptr << " (" << ptr.use_count() << ") ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;memory&gt\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    vector&lt;shared_ptr&lt;int&gt&gt v;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        v.push_back(make_shared&lt;int&gt(x));\n    }\n    for(auto& ptr : v) cout << *ptr << " (" << ptr.use_count() << ") ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>shared_ptr tracks multiple references to the same object.</p>`
   },
   {
@@ -3374,7 +3374,7 @@ int main() {
     category: 'Dynamic Programming',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take N, weights, values, and capacity, find max value using 0/1 Knapsack, print result.</p><h4>Sample Input:</h4><pre>3 4\n10 20 30\n1 2 3</pre><h4>Sample Output:</h4><pre>50</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint knapsack(int n, vector<int>& val, vector<int>& wt, int W) {\n    vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0));\n    for(int i = 1; i <= n; i++) {\n        for(int w = 0; w <= W; w++) {\n            if(wt[i-1] <= w) dp[i][w] = max(dp[i-1][w], dp[i-1][w-wt[i-1]] + val[i-1]);\n            else dp[i][w] = dp[i-1][w];\n        }\n    }\n    return dp[n][W];\n}\n\nint main() {\n    int n, W;\n    cin >> n >> W;\n    vector<int> val(n), wt(n);\n    for(int i = 0; i < n; i++) cin >> val[i];\n    for(int i = 0; i < n; i++) cin >> wt[i];\n    cout << knapsack(n, val, wt, W) << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint knapsack(int n, vector&lt;int&gt &val, vector&lt;int&gt &wt, int W) {\n    vector&lt;vector&lt;int&gt&gt dp(n + 1, vector&lt;int&gt(W + 1, 0));\n    for(int i = 1; i <= n; i++) {\n        for(int w = 0; w <= W; w++) {\n            if(wt[i-1] <= w) dp[i][w] = max(dp[i-1][w], dp[i-1][w-wt[i-1]] + val[i-1]);\n 0           else dp[i][w] = dp[i-1][w];\n        }\n    }\n    return dp[n][W];\n}\n\nint main() {\n    int n, W;\n    cin >> n >> W;\n    vector&lt;int&gt val(n), wt(n);\n    for(int i = 0; i < n; i++) cin >> val[i];\n    for(int i = 0; i < n; i++) cin >> wt[i];\n    cout << knapsack(n, val, wt, W) << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Dynamic programming builds a table to maximize value within capacity.</p>`
   },
   {
@@ -3384,7 +3384,7 @@ int main() {
     category: 'Dynamic Programming',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take two strings, find their longest common subsequence length, and print it.</p><h4>Sample Input:</h4><pre>ABCDGH\nAEDFHR</pre><h4>Sample Output:</h4><pre>3\nADH</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nint lcs(string X, string Y, string& result) {\n    int m = X.length(), n = Y.length();\n    vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));\n    for(int i = 1; i <= m; i++) {\n        for(int j = 1; j <= n; j++) {\n            if(X[i-1] == Y[j-1]) dp[i][j] = dp[i-1][j-1] + 1;\n            else dp[i][j] = max(dp[i-1][j], dp[i][j-1]);\n        }\n    }\n    int i = m, j = n;\n    while(i > 0 && j > 0) {\n        if(X[i-1] == Y[j-1]) {\n            result = X[i-1] + result;\n            i--; j--;\n        } else if(dp[i-1][j] > dp[i][j-1]) i--;\n        else j--;\n    }\n    return dp[m][n];\n}\n\nint main() {\n    string X, Y;\n    cin >> X >> Y;\n    string result;\n    int length = lcs(X, Y, result);\n    cout << length << endl << result << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nint lcs(string X, string Y, string& result) {\n    int m = X.length(), n = Y.length();\n    vector&lt;vector&lt;int&gt;&gt dp(m + 1, vector&lt;int&gt(n + 1, 0));\n    for(int i = 1; i <= m; i++) {\n        for(int j = 1; j <= n; j++) {\n            if(X[i-1] == Y[j-1]) dp[i][j] = dp[i-1][j-1] + 1;\n            else dp[i][j] = max(dp[i-1][j], dp[i][j-1]);\n        }\n    }\n    int i = m, j = n;\n    while(i > 0 && j > 0) {\n        if(X[i-1] == Y[j-1]) {\n            result = X[i-1] + result;\n            i--; j--;\n        } else if(dp[i-1][j] > dp[i][j-1]) i--;\n        else j--;\n    }\n    return dp[m][n];\n}\n\nint main() {\n    string X, Y;\n    cin >> X >> Y;\n    string result;\n    int length = lcs(X, Y, result);\n    cout << length << endl << result << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>DP table tracks lengths, and backtracking reconstructs the subsequence.</p>`
   },
   {
@@ -3394,7 +3394,7 @@ int main() {
     category: 'Multithreading',
     difficulty: 'very hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Very Hard</strong></p><p>Take N tasks, create a thread pool of 2 threads, execute tasks (print task number), and print completion.</p><h4>Sample Input:</h4><pre>3</pre><h4>Sample Output:</h4><pre>Task 1\nTask 2\nTask 3\nDone</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <queue>\n#include <thread>\n#include <mutex>\n#include <condition_variable>\nusing namespace std;\n\nclass ThreadPool {\nprivate:\n    vector<thread> threads;\n    queue<int> tasks;\n    mutex mtx;\n    condition_variable cv;\n    bool stop;\npublic:\n    ThreadPool(int n) : stop(false) {\n        for(int i = 0; i < n; i++) threads.emplace_back(&ThreadPool::worker, this);\n    }\n    ~ThreadPool() {\n        {\n            lock_guard<mutex> lock(mtx);\n            stop = true;\n        }\n        cv.notify_all();\n        for(auto& t : threads) t.join();\n    }\n    void addTask(int task) {\n        lock_guard<mutex> lock(mtx);\n        tasks.push(task);\n        cv.notify_one();\n    }\n    void worker() {\n        while(true) {\n            int task;\n            {\n                unique_lock<mutex> lock(mtx);\n                cv.wait(lock, [this]() { return stop || !tasks.empty(); });\n                if(stop && tasks.empty()) return;\n                task = tasks.front();\n                tasks.pop();\n            }\n            cout << "Task " << task << endl;\n        }\n    }\n};\n\nint main() {\n    int n;\n    cin >> n;\n    ThreadPool pool(2);\n    for(int i = 1; i <= n; i++) pool.addTask(i);\n    cout << "Done" << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;queue&gt\n#include &lt;thread&gt\n#include &lt;mutex&gt\n#include &lt;condition_variable&gt\nusing namespace std;\n\nclass ThreadPool {\nprivate:\n    vector&lt;thread&gt threads;\n    queue&lt;int&gt tasks;\n    mutex mtx;\n    condition_variable cv;\n    bool stop;\npublic:\n    ThreadPool(int n) : stop(false) {\n        for(int i = 0; i < n; i++) threads.emplace_back(&ThreadPool::worker, this);\n    }\n    ~ThreadPool() {\n        {\n            lock_guard&lt;mutex&gt lock(mtx);\n            stop = true;\n        }\n        cv.notify_all();\n        for(auto& t : threads) t.join();\n    }\n    void addTask(int task) {\n        lock_guard&lt;mutex&gt lock(mtx);\n        tasks.push(task);\n        cv.notify_one();\n    }\n    void worker() {\n        while(true) {\n            int task;\n            {\n                unique_lock&lt;mutex&gt lock(mtx);\n                cv.wait(lock, [this]() { return stop || !tasks.empty(); });\n                if(stop && tasks.empty()) return;\n                task = tasks.front();\n                tasks.pop();\n            }\n            cout << "Task " << task << endl;\n        }\n    }\n};\n\nint main() {\n    int n;\n    cin >> n;\n    ThreadPool pool(2);\n    for(int i = 1; i <= n; i++) pool.addTask(i);\n    cout << "Done" << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>The thread pool manages a queue of tasks with synchronization.</p>`
   },
   {
@@ -3414,7 +3414,7 @@ int main() {
     category: 'Templates',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take variable number of integers, use variadic template to calculate sum, and print.</p><h4>Sample Input:</h4><pre>1 2 3 4</pre><h4>Sample Output:</h4><pre>10</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\ntemplate <typename... Args>\nint sum(Args... args) {\n    return (args + ...);\n}\n\nint main() {\n    int a, b, c, d;\n    cin >> a >> b >> c >> d;\n    cout << sum(a, b, c, d) << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\ntemplate &lt;typename... Args&gt\nint sum(Args... args) {\n    return (args + ...);\n}\n\nint main() {\n    int a, b, c, d;\n    cin >> a >> b >> c >> d;\n    cout << sum(a, b, c, d) << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Variadic template unfolds arguments into a sum.</p>`
   },
   {
@@ -3424,7 +3424,7 @@ int main() {
     category: 'Modern C++',
     difficulty: 'hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Hard</strong></p><p>Take N integers, move a vector to a function, and print its sum.</p><h4>Sample Input:</h4><pre>3\n1 2 3</pre><h4>Sample Output:</h4><pre>6</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint calculateSum(vector<int>&& v) {\n    int sum = 0;\n    for(int x : v) sum += x;\n    return sum;\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    cout << calculateSum(move(v)) << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint calculateSum(vector&lt;int&gt&& v) {\n    int sum = 0;\n    for(int x : v) sum += x;\n    return sum;\n}\n\nint main() {\n    int n;\n    cin >> n;\n    vector&lt;int&gt v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    cout << calculateSum(move(v)) << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Move semantics transfers ownership, avoiding copy overhead.</p>`
   },
   {
@@ -3434,7 +3434,7 @@ int main() {
     category: 'STL',
     difficulty: 'very hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Very Hard</strong></p><p>Take N integers, store in a vector with a custom allocator, and print them.</p><h4>Sample Input:</h4><pre>3\n1 2 3</pre><h4>Sample Output:</h4><pre>1 2 3</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include <memory>\nusing namespace std;\n\ntemplate <typename T>\nclass MyAllocator {\npublic:\n    typedef T value_type;\n    MyAllocator() {}\n    T* allocate(size_t n) { return static_cast<T*>(::operator new(n * sizeof(T))); }\n    void deallocate(T* p, size_t) { ::operator delete(p); }\n};\n\nint main() {\n    int n;\n    cin >> n;\n    vector<int, MyAllocator<int>> v;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        v.push_back(x);\n    }\n    for(int x : v) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;memory&gt\nusing namespace std;\n\ntemplate &lt;typename T&gt\nclass MyAllocator {\npublic:\n    typedef T value_type;\n    MyAllocator() {}\n    T* allocate(size_t n) { return static_cast<T*>(::operator new(n * sizeof(T))); }\n    void deallocate(T* p, size_t) { ::operator delete(p); }\n};\n\nint main() {\n    int n;\n    cin >> n;\n    vector&lt;int, MyAllocator&lt;int&gt&gt v;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        v.push_back(x);\n    }\n    for(int x : v) cout << x << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Custom allocator overrides default memory management.</p>`
   },
   {
@@ -3444,7 +3444,7 @@ int main() {
     category: 'Modern C++',
     difficulty: 'very hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Very Hard</strong></p><p>Take N, yield numbers from 1 to N using a coroutine, and print them.</p><h4>Sample Input:</h4><pre>3</pre><h4>Sample Output:</h4><pre>1 2 3</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <experimental/coroutine>\nusing namespace std;\n\nstruct Generator {\n    struct promise_type {\n        int value;\n        Generator get_return_object() { return Generator{this}; }\n        suspend_always initial_suspend() { return {}; }\n        suspend_always final_suspend() noexcept { return {}; }\n        suspend_always yield_value(int v) { value = v; return {}; }\n        void return_void() {}\n        void unhandled_exception() {}\n    };\n    using handle_type = coroutine_handle<promise_type>;\n    handle_type h;\n    Generator(promise_type* p) : h(handle_type::from_promise(*p)) {}\n    ~Generator() { h.destroy(); }\n    bool move_next() { return !h.done(); }\n    int current_value() { return h.promise().value; }\n};\n\nGenerator generate(int n) {\n    for(int i = 1; i <= n; i++) co_yield i;\n}\n\nint main() {\n    int n;\n    cin >> n;\n    auto gen = generate(n);\n    while(gen.move_next()) cout << gen.current_value() << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;experimental/coroutine&gtd\nusing namespace std;\n\nstruct Generator {\n    struct promise_type {\n        int value;\n        Generator get_return_object() { return Generator{this}; }\n        suspend_always initial_suspend() { return {}; }\n        suspend_always final_suspend() noexcept { return {}; }\n        suspend_always yield_value(int v) { value = v; return {}; }\n        void return_void() {}\n        void unhandled_exception() {}\n    };\n    using handle_type = coroutine_handle<promise_type>;\n    handle_type h;\n    Generator(promise_type* p) : h(handle_type::from_promise(*p)) {}\n    ~Generator() { h.destroy(); }\n    bool move_next() { return !h.done(); }\n    int current_value() { return h.promise().value; }\n};\n\nGenerator generate(int n) {\n    for(int i = 1; i <= n; i++) co_yield i;\n}\n\nint main() {\n    int n;\n    cin >> n;\n    auto gen = generate(n);\n    while(gen.move_next()) cout << gen.current_value() << " ";\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Coroutine yields values incrementally using co_yield.</p>`
   },
   {
@@ -3454,7 +3454,7 @@ int main() {
     category: 'Multithreading',
     difficulty: 'very hard',
     problem: `<h3>Problem Statement</h3><p><strong>Difficulty: Very Hard</strong></p><p>Take N, enqueue N integers, dequeue and print them using a lock-free queue.</p><h4>Sample Input:</h4><pre>3\n1 2 3</pre><h4>Sample Output:</h4><pre>1 2 3</pre>`,
-    solution: `<pre><code>#include &lt;iostream&gt;\n#include <atomic>\nusing namespace std;\n\ntemplate <typename T>\nclass LockFreeQueue {\nprivate:\n    struct Node { T data; atomic<Node*> next; Node(T d) : data(d), next(nullptr) {} };\n    atomic<Node*> head;\n    atomic<Node*> tail;\npublic:\n    LockFreeQueue() : head(new Node(T())), tail(head.load()) {}\n    ~LockFreeQueue() { while(head.load()) { Node* temp = head.load(); head.store(temp->next.load()); delete temp; } }\n    void enqueue(T data) {\n        Node* newNode = new Node(data);\n        Node* oldTail = tail.exchange(newNode);\n        oldTail->next.store(newNode);\n    }\n    bool dequeue(T& data) {\n        Node* oldHead = head.load();\n        Node* newHead = oldHead->next.load();\n        if(!newHead) return false;\n        data = newHead->data;\n        head.store(newHead);\n        delete oldHead;\n        return true;\n    }\n};\n\nint main() {\n    int n;\n    cin >> n;\n    LockFreeQueue<int> q;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        q.enqueue(x);\n    }\n    for(int i = 0; i < n; i++) {\n        int x;\n        if(q.dequeue(x)) cout << x << " ";\n    }\n    cout << endl;\n    return 0;\n}</code></pre>`,
+    solution: `<pre><code>#include &lt;iostream&gt;\n#include &lt;atomic&gt\nusing namespace std;\n\ntemplate <typename T>\nclass LockFreeQueue {\nprivate:\n    struct Node { T data; atomic<Node*> next; Node(T d) : data(d), next(nullptr) {} };\n    atomic<Node*> head;\n    atomic<Node*> tail;\npublic:\n    LockFreeQueue() : head(new Node(T())), tail(head.load()) {}\n    ~LockFreeQueue() { while(head.load()) { Node* temp = head.load(); head.store(temp->next.load()); delete temp; } }\n    void enqueue(T data) {\n        Node* newNode = new Node(data);\n        Node* oldTail = tail.exchange(newNode);\n        oldTail->next.store(newNode);\n    }\n    bool dequeue(T& data) {\n        Node* oldHead = head.load();\n        Node* newHead = oldHead->next.load();\n        if(!newHead) return false;\n        data = newHead->data;\n        head.store(newHead);\n        delete oldHead;\n        return true;\n    }\n};\n\nint main() {\n    int n;\n    cin >> n;\n    LockFreeQueue<int> q;\n    for(int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        q.enqueue(x);\n    }\n    for(int i = 0; i < n; i++) {\n        int x;\n        if(q.dequeue(x)) cout << x << " ";\n    }\n    cout << endl;\n    return 0;\n}</code></pre>`,
     explanation: `<h3>Explanation</h3><p>Atomic operations ensure thread-safe enqueue and dequeue without locks.</p>`
   }
 
